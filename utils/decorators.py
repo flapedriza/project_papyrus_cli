@@ -5,6 +5,7 @@ import click as clk
 
 
 def requires_login(method):
+    print(method)
     home = str(Path.home())
     if not os.path.isfile(os.path.join(home, '.papyrus', 'token')):
         clk.secho('You must login first', err=True, fg='red')
