@@ -5,6 +5,7 @@ setup(
     version='0.1',
     packages=find_packages(),
     include_package_data=True,
+    py_modules=['main', 'user_managing'],
     install_requires=[
         'Click',
         'Requests'
