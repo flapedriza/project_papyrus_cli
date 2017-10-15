@@ -25,7 +25,7 @@ def end():
 @clk.command()
 def get_tasks():
     token = None
-    with open('/home/francesc/.papyrus/token') as file: # Need to check if file exists (check nneds_login decorator)
+    with open('/home/hackupc/papyrus-token') as file: # Need to check if file exists (check nneds_login decorator)
         token = 'Token '+file.read() # Obtain token from file
     tasks = requests.get(API_URL+'/core/tasks', headers={'Authorization':token}) # GET request
     son = json.loads(tasks.text) # Obtain dict from json
