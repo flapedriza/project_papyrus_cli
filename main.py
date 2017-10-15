@@ -23,11 +23,12 @@ def end():
     clk.echo('end')
 
 @clk.command()
-def get_tasks():
+def all_tasks():
     token = None
-    with open('/home/hackupc/papyrus-token') as file: # Need to check if file exists (check nneds_login decorator)
+    with open('/home/victorgp/hackupc/papyrus-token') as file: # Need to check if file exists (check nneds_login decorator)
         token = 'Token '+file.read() # Obtain token from file
-    tasks = requests.get(API_URL+'/core/tasks', headers={'Authorization':token}) # GET request
+    tasks = requests.get(API_URL+'/core/tasks/', headers={'Authorization':token}) # GET request
+    clk.echo(tasks.text)
     son = json.loads(tasks.text) # Obtain dict from json
     clk.echo(son)
 
@@ -35,4 +36,4 @@ cli.add_command(login)
 cli.add_command(register)
 cli.add_command(start)
 cli.add_command(end)
-cli.add_command(get_tasks)
+cli.add_command(all_tasks)
